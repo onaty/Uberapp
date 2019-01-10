@@ -1,0 +1,8 @@
+{
+  "name": "Ubercloneapp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "id": "78cf91b6"
+}

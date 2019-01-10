@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <ion-icon [hidden]="!isPickupRequested" (click)="cancelPickup()" name="arrow-back">
+      Cancel
+    </ion-icon>
+    <ion-title>
+      <span [hidden]="!isPickupRequested">On the way</span>
+      <span [hidden]="isPickupRequested">Uber App</span>
+    </ion-title>
+    <ion-icon [hidden]="isPickupRequested" (click)="map.centerLocation()" name="navigate">
+    </ion-icon>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="mapwrapper">
+    <map #map isPickupRequested="isPickupRequested"></map>
+  </div>
+  <div class="bottom request-controls">
+    <ion-row>
+      <ion-col col-6>
+        <button ion-button block light>
+          <ion-icon name="card">
+            **58
+          </ion-icon>
+        </button>
+      </ion-col>
+
+      <ion-col col-6>
+        <button ion-button block color="secondary">
+          <ion-icon name="cash">
+            Cash
+          </ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button [hidden]="isPickupRequested" ion-button (click)="confirmPickup()" block color="dark">
+          Request Driver
+        </button>
+        <button [hidden]="!isPickupRequested" ion-button (click)="cancelPickup()" block color="danger">
+          Cancel driver request
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        Driver is 5 mins away
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
